@@ -1,0 +1,40 @@
+Console.WriteLine("2. Add a workout");
+                Console.WriteLine("3. Edit a workout");
+                Console.WriteLine("4. Delete a workout");
+                Console.WriteLine("5. Print all users");
+                Console.WriteLine("6. Print all workouts");
+
+                var option = Console.ReadLine();
+                switch (option)
+                {
+                    case "0":
+                        Console.WriteLine("Thank you for visiting the gym!");
+                        return;
+                    case "1":
+                        Console.WriteLine("User Name:");
+                        var userName = Console.ReadLine();
+                        Console.WriteLine("Email Address");
+                        var userEmail = Console.ReadLine();
+                        Console.WriteLine("")
+                    case "2":
+                        Console.WriteLine("Enter a Date:");
+                        Console.WriteLine("Enter a workout type:");
+                            var workoutTypes = Enum.GetNames(typeof(TypeOfWorkout));
+                            for (var i = 0; i <workoutTypes.Length; i++)
+                        {
+                            Console.WriteLine($"{i + 1}.{workoutTypes[i]}");
+                        }
+                        var workoutType = Enum.Parse<TypeOfWorkout>(Console.ReadLine()) - 1;
+
+                        var myWorkout = Gym
+                        Console.WriteLine("Enter a duration (minutes):");
+                        break;
+                    case "3":
+                        break;
+                    case "4":
+                        break;
+                    case "5":
+                        break;
+                    case "6":
+                        break;
+                    default:
