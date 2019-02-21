@@ -5,7 +5,7 @@ using System.Text;
 namespace WorkoutApp
 {
 
-    enum TypeOfWorkout
+    public enum TypeOfWorkout
     {
         Run,
         Bike,
@@ -16,16 +16,12 @@ namespace WorkoutApp
     /// <summary>
     /// Workout object for the application
     /// </summary>
-    class Workout
+    public class Workout
     {
-        /// <summary>
-        /// Workout number
-        /// </summary>
-        private static int lastWorkoutNumber = 0;
 
         #region Properties
 
-        public int WorkoutNumber { get; }
+        public int WorkoutNumber { get; set; }
 
         public DateTime WorkoutDate { get; set; }
 
@@ -39,7 +35,6 @@ namespace WorkoutApp
 
         public Workout()
         {
-            WorkoutNumber = ++lastWorkoutNumber;
             WorkoutDate = DateTime.UtcNow;
         }
         #endregion

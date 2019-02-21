@@ -4,19 +4,14 @@ using System.Text;
 
 namespace WorkoutApp
 {
-    class User
+    public class User
     {
-
-        /// <summary>
-        /// User number
-        /// </summary>
-        private static int lastUserNumber = 0;
 
         #region Properties
         /// <summary>
         /// User properties
         /// </summary>
-        private int UserNumber { get; set; }
+        public int UserNumber { get; set; }
 
         public string Username { get; set; }
 
@@ -37,7 +32,6 @@ namespace WorkoutApp
         /// </summary>
         public User()
         {
-            UserNumber = ++lastUserNumber;
             CreateDate = DateTime.UtcNow;
             TotalWorkouts = 0;
             TotalDuration = 0;
@@ -49,7 +43,7 @@ namespace WorkoutApp
         /// <summary>
         /// update workout tracking
         /// </summary>
-        /// <param name="amount"></param>Amount to be deposited
+        /// <param name="amount"></param>
         public void AddWorkout(int amount)
         {
             TotalWorkouts += amount;

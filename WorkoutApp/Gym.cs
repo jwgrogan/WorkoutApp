@@ -5,10 +5,9 @@ using System.Linq;
 
 namespace WorkoutApp
 {
-    static class Gym
+    public static class Gym
     {
-        private static List<User> users = new List<User>();
-        private static List<Workout> workouts = new List<Workout>();
+        public static GymDb db = new GymDb();
 
         public static User AddUser(string username, string emailAddress)
         {
@@ -17,13 +16,14 @@ namespace WorkoutApp
                 Username = username,
                 EmailAddress = emailAddress,
             };
-            users.Add(user);
+            db.Users.Add(user);
+            db.SaveChanges();
             return user;
         }
 
         public static IEnumerable<User> GetUser(string username)
         {
-            return users.Where(user => user.Username == username);
+            return db.Users.Where(user => user.Username == username);
 
         }
 
@@ -34,30 +34,31 @@ namespace WorkoutApp
         /// <param name="workoutType"></param>
         /// <param name="workoutDuration"></param>
         /// <returns></returns>
-        public static Workout AddWorkout(int workoutDuration, DateTime workoutDate,
+        public static Workout AddWorkout(DateTime workoutDate, int workoutDuration, 
                 TypeOfWorkout workoutType = TypeOfWorkout.Run)
         {
             var workout = new Workout
             {
                 WorkoutDate = workoutDate,
-                WorkoutType = workoutType,
                 WorkoutDuration = workoutDuration,
+                WorkoutType = workoutType,
             };
-            workouts.Add(workout);
+            db.Workouts.Add(workout);
+            db.SaveChanges();
             return workout;
         }
 
-        public static Workout EditWorkout(int workoutDuration, DateTime workoutDate,
-                TypeOfWorkout workoutType = TypeOfWorkout.Run)
-        {
+        public static Workout EditWorkout(DateTime workoutDate, int workoutDuration, 
+                TypeOfWorkout workoutType)
+        { 
             var workout = new Workout
             {
+                WorkoutDate = workoutDate,
                 WorkoutDuration = workoutDuration,
-                WorkoutDate = workoutDate, 
                 WorkoutType = workoutType,
-                
             };
-            workouts.Add(workout);
+            db.Workouts.Add(workout);
+            db.SaveChanges();
             return workout;
         }
     }
